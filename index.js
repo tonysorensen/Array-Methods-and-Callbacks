@@ -12,6 +12,60 @@ console.log('its working');
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
+// (a)
+const homeName = fifaData.filter((home) => {
+    return home.Year === 2014 && home.Stage === 'Final';
+})
+ console.log(homeName[0]['Home Team Name'])
+
+ //(b)
+ const awayName = fifaData.filter((away) => {
+    return away.Year === 2014 && away.Stage === 'Final';
+})
+ console.log(awayName[0]['Away Team Name'])
+
+//(c)
+const homeGoals = fifaData.filter((home) => {
+    return home.Year === 2014 && home.Stage === 'Final';
+})
+console.log (homeGoals[0]['Home Team Goals'])
+
+//(d)
+const awayGoals = fifaData.filter((away) => {
+    return away.Year === 2014 && away.Stage === 'Final';
+})
+console.log (awayGoals[0]['Away Team Goals'])
+
+//(e)
+const winningTeam = fifaData.filter((win) => {
+    return win.Year === 2014 && win.Stage === 'Final';
+})
+console.log (winningTeam[0]['Win conditions'])
+
+// 828:
+// Assistant 1: "Renato FAVERANI (ITA)"
+// Assistant 2: "Andrea STEFANI (ITA)"
+// Attendance: 74738
+// Away Team Goals: 0
+// Away Team Initials: "ARG"
+// Away Team Name: "Argentina"
+// City: "Rio De Janeiro"
+// Datetime: "13 Jul 2014 - 16:00"
+// Half-time Away Goals: 0
+// Half-time Home Goals: 0
+// Home Team Goals: 1
+// Home Team Initials: "GER"
+// Home Team Name: "Germany"
+// MatchID: 300186501
+// Referee: "Nicola RIZZOLI (ITA)"
+// RoundID: 255959
+// Stadium: "Estadio do Maracana"
+// Stage: "Final"
+// Win conditions: "Germany win after extra time"
+// Year: 2014
+
+
+
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
