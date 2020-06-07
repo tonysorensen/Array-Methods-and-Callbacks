@@ -69,7 +69,7 @@ function getYears(cb) {
 }
 
 getYears(getFinals);
-console.log(getYears(getFinals))
+console.log(getYears(getFinals));
 console.log("----------------------------------------");
 console.log();
 console.log("----------------------------------------");
@@ -88,11 +88,10 @@ function getWinners(cb) {
     return winners;
   });
   return winners;
-  
 }
 
 getWinners(getFinals);
-console.log(getWinners(getFinals))
+console.log(getWinners(getFinals));
 console.log("----------------------------------------");
 console.log();
 console.log("----------------------------------------");
@@ -106,38 +105,63 @@ Parameters:
  */
 
 function getWinnersByYear(getWinners, getYears) {
-   const finArray = [];
+  const finArray = [];
   let year = getYears(getFinals);
   for (let i = 0; i < year.length; i++) {
     finArray.push(`In ${year[i]},`);
-  };
+  }
 
   let win = getWinners(getFinals);
   for (let i = 0; i < win.length; i++) {
-    finArray[i]+=(`${win[i]} won the world cup!`);
+    finArray[i] += `${win[i]} won the world cup!`;
   }
- return(finArray)
+  return finArray;
 }
 
 getWinnersByYear(getWinners, getYears);
-console.log(getWinnersByYear(getWinners, getYears))
+console.log(getWinnersByYear(getWinners, getYears));
 console.log("----------------------------------------");
 console.log();
 console.log("----------------------------------------");
 console.log();
-
 
 /* Task 7: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
-
+console.log('This is the average of all home scores and all away scores in fifaData')
+console.log("")
 function getAverageGoals(data) {
-  /* code here */
+  const hta = [];
+  const ata = [];
+   fifaData.map((hg) => {
+      hta.push(hg["Home Team Goals"]);
+    });
+    fifaData.map((ag) => {
+      ata.push(ag["Away Team Goals"]);
+    });
+   let homeTeamReduce = hta.reduce((total, digit) => {
+    return(total + digit);
+}, 0)
+    console.log((homeTeamReduce/hta.length).toFixed(2));
+    let awayTeamReduce = ata.reduce((total, digit) => {
+        return(total + digit);
+    }, 0)
+        console.log((awayTeamReduce/ata.length).toFixed(2));
 }
-
-
-
-
-
 getAverageGoals(getFinals);
+console.log("")
+console.log("")
+console.log('This the average of both teams scores per match in the Finals array')
+console.log("")
+function getAverageGoals1(goals) {
+  let goalTotal = [];
+  let goalAverage= [];
+  goals(fifaData).map((data) => {
+      const add = data["Away Team Goals"] + data["Home Team Goals"]
+    goalAverage.push(add/2)
+  });
+  console.log(goalAverage);
+  };
+
+getAverageGoals1(getFinals);
 
 /// STRETCH 🥅 //
 
